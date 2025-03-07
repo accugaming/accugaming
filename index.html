@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accu Gaming</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Accu Gaming World!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> ║
+                <li><a href="About.html">About</a></li> ║
+                <li><a href="Tournament.html">Tournament</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section id="games">
+        <h2>Featured Games</h2>
+        <div class="game-card" width="10" height="50">
+            <img src="accugaming.png" alt="Game 1" width="10" height="50">
+            <h3>Free Fire Max</h3>
+            <!-- Game Play Button -->
+<button id="playButton">Play the Game</button>
+
+
+<script>
+  document.getElementById('playButton').addEventListener('click', function() {
+    // For Mobile Devices (Android & iOS) - Use deep link
+    var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    
+    if (isMobile) {
+      // For Android & iOS - Deep link
+      var scheme = "freefiremax://"; // Replace with your game’s deep link scheme
+      var appStoreURL = "https://play.google.com/store/apps/details?id=com.dts.freefiremax"; // Google Play Store URL
+      var appStoreiOS = "https://apps.apple.com/us/app/free-fire-max/id1512257888"; // App Store URL for iOS
+
+      // Try to open the game using its deep link scheme
+      window.location.href = scheme;
+
+      // If the app is not installed, redirect to the app store after 500ms
+      setTimeout(function() {
+        if (/iphone|ipad|ipod/i.test(navigator.userAgent)) {
+          window.location.href = appStoreiOS;  // Redirect to iOS App Store if not installed
+        } else {
+          window.location.href = appStoreURL;  // Redirect to Google Play Store if not installed
+        }
+      }, 500);
+
+    } else {
+
+            // Link to download emulator (Example: BlueStacks)
+            window.open("https://www.msi.com/Landing/appplayer");
+
+            // Link to download Free Fire Max
+            window.open("https://play.google.com/store/apps/details?id=com.dts.freefiremax");
+    }
+  });
+</script>
+        </div>
+    </section>
+    
+     <!-- Embed YouTube Video -->
+  <section>
+     <div class="youtube-video">
+        <h2>Watch My Latest Video</h2>
+        <br>
+        <iframe width="360" height="215" src="https://www.youtube.com/embed/a1r8_rp-Qok?si=D2d5kwrW6xxZp2JP" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="360" height="215" src="https://www.youtube.com/embed/QocSVznJ-as?si=20ySxMai8jUeaChD" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="360" height="215" src="https://www.youtube.com/embed/GOofxcylh64?si=uJQNkpZ6Vwkm3JEP" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="360" height="215" src="https://www.youtube.com/embed/S64WIr0y9XA?si=N9E037htCdtctsIY" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="360" height="215" src="https://www.youtube.com/embed/RFi1gWmC2UY?si=sqz3OdV3bjhnhMpC" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="360" height="215" src="https://www.youtube.com/embed/eAfInxVlBGo?si=ZcDC4EBPxrRsRpZI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </section>
+    <footer>
+        <big><p>&copy; 2025 Accu Gaming.</p></big>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

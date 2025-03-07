@@ -1,0 +1,145 @@
+/* Reset default margin & padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #342d40; /* Dark background for a professional look */
+    color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header Styling */
+header {
+    background: #000000;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Header Title */
+header h1 {
+    font-size: 2.2em;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+/* Navigation Bar */
+nav ul {
+    list-style-type: none;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0fdde4;
+    font-size: 1.2em;
+    font-weight: 600;
+    transition: 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    color: #ff4b2b;
+    transform: scale(1.1);
+}
+
+/* Hero Section */
+section {
+    padding: 25px;
+    margin: 20px auto;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 800px;
+    text-align: center;
+    transition: 0.3s ease-in-out;
+}
+
+section:hover {
+    transform: scale(1.02);
+}
+
+/* Game Cards */
+#games {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 30px;
+}
+
+.game-card {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    padding: 20px;
+    text-align: center;
+    width: 180px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(255, 75, 43, 0.3);
+    transition: 0.3s ease-in-out;
+}
+
+.game-card:hover {
+    transform: scale(1.1);
+    box-shadow: 0px 6px 15px rgba(255, 75, 43, 0.5);
+}
+
+/* Game Card Images */
+.game-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+footer {
+    background: #000000;
+    color: #ffffff;
+    text-align: center;
+    padding: 40px 0;
+    position: relative; /* Prevents overlap with other elements */
+    clear: both; /* Ensures footer clears any floated content */
+}
+
+/* YouTube Video Styling */
+.youtube-video, .youtube-playlist {
+    text-align: center;
+    margin: 20px 0;
+}
+
+iframe {
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    height: 400px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        padding: 5px 0;
+    }
+
+    nav ul li {
+        margin: 0 10px;
+    }
+
+    .game-card {
+        width: 150px;
+        padding: 15px;
+    }
+
+    iframe {
+        height: 250px;
+    }
+}

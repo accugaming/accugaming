@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tournament</title>
+    <link rel="stylesheet" href="style4.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Accu Gaming World!</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li> ║
+                <li><a href="About.html">About</a></li> ║
+                <li><a href="Tournament.html">Tournament</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Header Section -->
+    <center>
+        <h1>Gaming FF Solo Tournament</h1>
+        <p>Get ready to compete in the ultimate solo tournament!</p>
+    </center>
+
+    <!-- Tournament Details Section -->
+   <div class="tournament-info">
+    <h2>Tournament Details</h2>
+    
+    <div class="tournament-details">
+      <div class="tournament-item">
+        <span>Date</span> 10th March 2025
+      </div>
+      <div class="tournament-item">
+        <span>Time</span> 7:00 PM IST
+      </div>
+      <div class="tournament-item">
+        <span>Entry Fee</span> Free
+      </div>
+      <div class="tournament-item">
+        <span>Prize Pool</span> ₹160(1st Winner Only)
+      </div>
+      <div class="tournament-item">
+        <span>Platform</span> Mobile (Free Fire Max)
+      </div>
+    </div>
+  
+    <div class="tournament-rules">
+      <h2>Rules & Regulations</h2>
+      <ul>
+        <li>There will be only 1 winner</li>
+        <li>No hacking or cheating.</li>
+        <li>Only registered players can participate.</li>
+        <li>Follow the match timings strictly.</li>
+        <li>Custom room ID and password will be shared on DISCORD before the match.</li>
+        <li>Decisions by organizers are final.</li>
+        <li> Skills off  
+        <li> i'd must be above 50 level  
+        <li> The tournament will be played online from start to finish.
+        <li> Registration is for free.</li>
+        <li> Every Free Fire account must be at least level 40 to be able to participate.</li>
+        <li> Proof of identity may be requested from any entrant during the tournament.</li>
+        <li> Every Discord account must be at least 3 months old to be able to participate.</li>
+        <li> A maximum of 10 minutes waiting time is allowed per player.</li>
+        <li> The applicant must meet all the required conditions, otherwise he will be rejected.</li>
+        <li> Players are responsible for keeping up with the website and Discord updates related to the tournament.</li> 
+        <li> All players are responsible for bringing their own accounts to participate in tournaments.</li>
+        <li> Match duration: Until a winner is determined.</li>
+        <li> Registration closes when registration period is over or the maximum number of participants is reached.</li>
+        <li> All players need to join Discord.(Giveaway there only)</li>
+        <li> All players must follow the match times that will be announced on Discord.</li> 
+        <li> No changes are allowed to be done on the account’s names after the tournament starts.</li>
+        <li> Every player is responsible for their internet connection, as no matches will be delayed because of it.</li>
+        <li> The tournament is for mobile players only and no emulator or iPad or Tablet players will be allowed.</li>
+        <li> Communications will be done on Discord.</li>
+        <li> No team up.</li>
+      </ul>
+    </div>
+  </div>
+  
+    </section>
+
+    <!-- Registration Form Section -->
+    <center> <section class="registration-form">
+            <!-- Registration Form with autocomplete attributes -->
+            <h2>Register for the Tournament</h2>
+    <div id="registrationForm">
+        <br><input type="email" id="email" placeholder="Enter your Email" required>
+        <br><input type="text" id="uid" placeholder="Enter your UID" required>
+        <br><input type="text" id="username" placeholder="Enter your Username" required>
+        <br><button id="registerButton" onclick="registerPlayer()">Register</button>
+    </div>
+    
+    <p id="message"></p>
+
+    <h2>Leaderboard</h2>
+    <div id="leaderboard-container">
+      <table id="leaderboard">
+        <tr>
+          <th>Email</th>
+          <th>UID</th>
+          <th>Username</th>
+        </tr>
+        <tr>
+          <td>player1@gmail.com</td>
+          <td>12345678</td>
+          <td>PlayerOne</td>
+        </tr>
+        <tr>
+          <td>player2@gmail.com</td>
+          <td>87654321</td>
+          <td>PlayerTwo</td>
+        </tr>
+      </table>
+    </div>
+    
+
+    <script>
+        const scriptURL = "https://script.google.com/macros/s/AKfycbzd7Ue5QNtztyo-DrJYOKplGExvxmrtO9ze__d2sNYFpGJ-5MYdAEn-BQMqkJTxh5OSDA/exec"; // Replace with your Web App URL
+
+        async function registerPlayer() {
+            let email = document.getElementById("email").value;
+            let uid = document.getElementById("uid").value;
+            let username = document.getElementById("username").value;
+
+            if (!email || !uid || !username) {
+                alert("Please fill in all fields!");
+                return;
+            }
+
+            let response = await fetch(`${scriptURL}?action=register&email=${encodeURIComponent(email)}&uid=${encodeURIComponent(uid)}&username=${encodeURIComponent(username)}`);
+            let message = await response.text();
+
+            document.getElementById("message").innerText = message;
+
+            if (message === "Registration Full") {
+                document.getElementById("registrationForm").innerHTML = "<p>Registration is full.</p>";
+            }
+
+            loadLeaderboard(); // Refresh leaderboard
+        }
+
+        async function loadLeaderboard() {
+            let response = await fetch(`${scriptURL}?action=leaderboard`);
+            let leaderboard = await response.json();
+
+            let html = "<table border='1'><tr><th>Email</th><th>UID</th><th>Username</th></tr>";
+            leaderboard.forEach(player => {
+                html += `<tr><td>${player.email}</td><td>${player.uid}</td><td>${player.username}</td></tr>`;
+            });
+            html += "</table>";
+
+            document.getElementById("leaderboard").innerHTML = html;
+
+            if (leaderboard.length >= 50) {
+                document.getElementById("registrationForm").innerHTML = "<p>Registration is full.</p>";
+            }
+        }
+
+        loadLeaderboard();
+        
+    </script>
+        
+         <!-- Confirmation Message -->
+    <div id="confirmation-message" style="margin-top: 20px;"></div>
+</section>
+</center> 
+    <footer>
+        <big><p>&copy; 2025 Accu Gaming.</p></big>
+    </footer>
+    <script src="script2.js"></script>
+</body>
+</html>

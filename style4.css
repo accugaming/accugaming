@@ -1,0 +1,274 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #342d40;
+    color: rgb(231, 224, 224);
+    margin: 0;
+    padding: 10;
+}
+
+header {
+    background: hsl(0, 0%, 0%);
+    padding: 10px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #0fdde4;
+    font-size: 1.2em;
+}
+
+nav ul li a:hover {
+  color: #ff4b2b;
+    transform: scale(1.1);
+  }
+
+/* Main container */
+.tournament-info {
+  width: 90%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #1e1e2e;
+  color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Section Headers */
+.tournament-info h2 {
+  text-align: center;
+  font-size: 22px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #ff4b2b;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+/* Tournament Details */
+.tournament-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  font-size: 16px;
+}
+
+.tournament-item {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+
+.tournament-item:hover {
+  transform: scale(1.05);
+}
+
+/* Highlight Important Information */
+.tournament-item span {
+  display: block;
+  font-size: 14px;
+  color: #ff416c;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* Rules Section */
+.tournament-rules {
+  margin-top: 20px;
+  padding: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+}
+
+.tournament-rules ul {
+  padding-left: 20px;
+}
+
+.tournament-rules li {
+  margin-bottom: 8px;
+  font-size: 15px;
+}
+
+@media (max-width: 600px) {
+  .tournament-details {
+    grid-template-columns: 1fr;
+  }
+}
+
+input {
+    display: block; /* Places each input on a new line */
+    margin-bottom: 15px; /* Adds space below each input */
+    padding: 10px; /* Makes input fields bigger */
+    width: 100%; /* Adjust width if needed */
+    max-width: 300px; /* Prevents it from being too wide */
+    border-radius: 50px;
+  }
+
+
+form button {
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #444;
+}
+
+#confirmation-message {
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+}
+
+#registerButton {
+    background: linear-gradient(to right, #690b86, #2bff4e);
+    color: white;
+    border: 3px solid #007BFF;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 100px;
+  }
+
+  #registerButton:hover {
+    background: linear-gradient(to left, #ff4b2b, #ff416c);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.7); /* Glow effect */
+    border-color: #146ac5;
+  }
+
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+    position: relative; /* Prevents overlap with other elements */
+    clear: both; /* Ensures footer clears any floated content */
+}
+#overlay {
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+    z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
+/* Leaderboard container */
+#leaderboard-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 700px;
+    padding: 15px;
+    background: #1e1e2e;
+    border-radius: 10px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+  }
+  
+  /* Leaderboard table */
+  #leaderboard {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-align: center;
+    overflow: hidden;
+  }
+  
+  /* Table Headers */
+  #leaderboard th {
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
+    color: white;
+    font-size: 18px;
+    padding: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-bottom: 3px solid #ff4b2b;
+  }
+  
+  /* Table Rows */
+  #leaderboard td {
+    padding: 15px;
+    font-size: 16px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background 60s ease-in-out;
+  }
+  
+  /* Alternating row colors */
+  #leaderboard tr:nth-child(even) {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Hover Effect */
+  #leaderboard tr:hover {
+    background: rgba(255, 75, 43, 0.3);
+    transform: scale(1.02);
+    transition: 0.3s ease-in-out;
+  }
+  
+  /* Animated Glowing Borders */
+  #leaderboard tr:hover td {
+    border-left: 4px solid #ff4b2b;
+  }
+  
+  /* Animated Neon Glow on Headers */
+  @keyframes glow {
+    0% { text-shadow: 0 0 5px #ff416c, 0 0 10px #ff4b2b; }
+    50% { text-shadow: 0 0 10px #ff416c, 0 0 20px #ff4b2b; }
+    100% { text-shadow: 0 0 5px #ff416c, 0 0 10px #ff4b2b; }
+  }
+  
+  #leaderboard th {
+    animation: glow 15s infinite alternate;
+  }
+  
+  /* Mobile Responsiveness */
+  @media (max-width: 600px) {
+    #leaderboard th, #leaderboard td {
+      font-size: 14px;
+      padding: 8px;
+    }
+  }
+  
+@keyframes moveBackground {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
+}
